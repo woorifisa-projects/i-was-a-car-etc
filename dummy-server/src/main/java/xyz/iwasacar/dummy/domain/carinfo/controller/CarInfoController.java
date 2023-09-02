@@ -18,9 +18,12 @@ public class CarInfoController {
 	private final CarInfoService carInfoService;
 
 	@GetMapping
-	public ResponseEntity<CarInfoResponse> retrieveCarInfo(@RequestParam final String carNumber) {
+	public ResponseEntity<CarInfoResponse> retrieveCarInfo(
+		@RequestParam final String name,
+		@RequestParam final String carNumber
+	) {
 
-		return ResponseEntity.ok(carInfoService.retrieveCarInfo(carNumber));
+		return ResponseEntity.ok(carInfoService.retrieveCarInfo(name, carNumber));
 	}
 
 }

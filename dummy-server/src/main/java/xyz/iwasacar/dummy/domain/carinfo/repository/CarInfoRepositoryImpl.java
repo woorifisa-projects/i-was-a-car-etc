@@ -9,8 +9,8 @@ import xyz.iwasacar.dummy.domain.carinfo.dto.response.CarList;
 public class CarInfoRepositoryImpl implements CarInfoRepository {
 
 	@Override
-	public CarInfoResponse findCarByCarNumber(String carNumber) {
-		return CarList.getCarInfo(carNumber);
+	public CarInfoResponse findCarByCarNumber(final String name, final String carNumber) {
+		return CarList.getCarInfo(name, carNumber);
 	}
 
 }

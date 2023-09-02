@@ -5,13 +5,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class CarList {
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class CarList {
 
 	private static final Random random = new Random();
 
 	private static final List<CarInfoResponse.CarInfoResponseBuilder> list = List.of(
 		CarInfoResponse.builder()
-			.name("K8")
+			.carName("K8")
 			.carType("세단")
 			.brand("기아")
 			.color("검정")
@@ -66,7 +70,7 @@ public class CarList {
 			)),
 
 		CarInfoResponse.builder()
-			.name("소나타")
+			.carName("소나타")
 			.carType("세단")
 			.brand("현대")
 			.color("흰색")
@@ -121,7 +125,7 @@ public class CarList {
 			)),
 
 		CarInfoResponse.builder()
-			.name("마티즈")
+			.carName("마티즈")
 			.carType("경차")
 			.brand("대우")
 			.color("황금")
@@ -153,7 +157,7 @@ public class CarList {
 			)),
 
 		CarInfoResponse.builder()
-			.name("911")
+			.carName("911")
 			.carType("스포츠카")
 			.brand("포르쉐")
 			.color("은색")
@@ -243,7 +247,7 @@ public class CarList {
 			)),
 
 		CarInfoResponse.builder()
-			.name("X6")
+			.carName("X6")
 			.carType("SUV")
 			.brand("BMW")
 			.color("갈색")
@@ -297,7 +301,7 @@ public class CarList {
 				)
 			)),
 		CarInfoResponse.builder()
-			.name("봉고 EV")
+			.carName("봉고 EV")
 			.carType("트럭")
 			.brand("기아")
 			.color("흰색")
@@ -337,7 +341,7 @@ public class CarList {
 				)
 			)),
 		CarInfoResponse.builder()
-			.name("고스트")
+			.carName("고스트")
 			.carType("세단")
 			.brand("롤스로이스")
 			.color("흰색")
@@ -426,7 +430,7 @@ public class CarList {
 				)
 			)),
 		CarInfoResponse.builder()
-			.name("산타페")
+			.carName("산타페")
 			.carType("SUV")
 			.brand("현대")
 			.color("검정")
@@ -481,7 +485,7 @@ public class CarList {
 				)
 			)),
 		CarInfoResponse.builder()
-			.name("스타리아")
+			.carName("스타리아")
 			.carType("승합차")
 			.brand("현대")
 			.color("검정")
@@ -526,7 +530,7 @@ public class CarList {
 			)),
 
 		CarInfoResponse.builder()
-			.name("스타리아")
+			.carName("스타리아")
 			.carType("승합차")
 			.brand("현t")
 			.color("검정")
@@ -580,7 +584,7 @@ public class CarList {
 				)
 			)),
 		CarInfoResponse.builder()
-			.name("K5")
+			.carName("K5")
 			.carType("세단")
 			.brand("기아")
 			.color("파랑")
@@ -635,15 +639,16 @@ public class CarList {
 			))
 	);
 
-	public static CarInfoResponse getCarInfo(String carNumber) {
+	public static CarInfoResponse getCarInfo(final String name, final String carNumber) {
 		try {
 			char c = carNumber.charAt(carNumber.length() - 1);
 			int i = Integer.parseInt(String.valueOf(c));
 
-			return list.get(i).info(carNumber).build();
+			return list.get(i).memberName(name).info(carNumber).build();
 		} catch (Exception e) {
 			return list
 				.get(random.nextInt(list.size()))
+				.memberName(name)
 				.info(carNumber)
 				.build();
 		}

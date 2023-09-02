@@ -12,9 +12,9 @@ public class CarInfoService {
 
 	private final CarInfoRepository carInfoRepository;
 
-	public CarInfoResponse retrieveCarInfo(final String carNumber) {
+	public CarInfoResponse retrieveCarInfo(final String name, final String carNumber) {
 
-		return carInfoRepository.findCarByCarNumber(carNumber);
+		return carInfoRepository.findCarByCarNumber(name, carNumber);
 	}
 
 }
