@@ -16,8 +16,11 @@ public final class CarList {
 	private static final List<CarInfoResponse.CarInfoResponseBuilder> list = List.of(
 		CarInfoResponse.builder()
 			.carName("K8")
-			.carType("세단")
+			.carTypeId(5L)
+			.carType("대형차")
+			.brandId(2L)
 			.brand("기아")
+			.colorId(1L)
 			.color("검정")
 			.transmission("자동8단")
 			.fuel("가솔린")
@@ -71,8 +74,11 @@ public final class CarList {
 
 		CarInfoResponse.builder()
 			.carName("소나타")
-			.carType("세단")
+			.carTypeId(4L)
+			.carType("중형차")
+			.brandId(2L)
 			.brand("현대")
+			.colorId(1L)
 			.color("흰색")
 			.transmission("자동8단")
 			.fuel("가솔린")
@@ -126,8 +132,11 @@ public final class CarList {
 
 		CarInfoResponse.builder()
 			.carName("마티즈")
+			.carTypeId(1L)
 			.carType("경차")
+			.brandId(13L)
 			.brand("대우")
+			.colorId(1L)
 			.color("황금")
 			.transmission("자동5단")
 			.fuel("가솔린")
@@ -158,8 +167,11 @@ public final class CarList {
 
 		CarInfoResponse.builder()
 			.carName("911")
+			.carTypeId(1L)
 			.carType("스포츠카")
+			.brandId(13L)
 			.brand("포르쉐")
+			.colorId(1L)
 			.color("은색")
 			.transmission("자동8단")
 			.fuel("가솔린")
@@ -248,8 +260,11 @@ public final class CarList {
 
 		CarInfoResponse.builder()
 			.carName("X6")
+			.carTypeId(7L)
 			.carType("SUV")
+			.brandId(9L)
 			.brand("BMW")
+			.colorId(1L)
 			.color("갈색")
 			.transmission("자동8단")
 			.fuel("가솔린")
@@ -300,10 +315,14 @@ public final class CarList {
 					"핸즈프리"
 				)
 			)),
+
 		CarInfoResponse.builder()
 			.carName("봉고 EV")
-			.carType("트럭")
+			.carTypeId(11L)
+			.carType("화물차")
+			.brandId(2L)
 			.brand("기아")
+			.colorId(2L)
 			.color("흰색")
 			.transmission("자동")
 			.fuel("전기")
@@ -342,8 +361,11 @@ public final class CarList {
 			)),
 		CarInfoResponse.builder()
 			.carName("고스트")
-			.carType("세단")
+			.carTypeId(5L)
+			.carType("대형차")
+			.brandId(38L)
 			.brand("롤스로이스")
+			.colorId(2L)
 			.color("흰색")
 			.transmission("자동8단")
 			.fuel("가솔린")
@@ -429,10 +451,14 @@ public final class CarList {
 					"블루투스"
 				)
 			)),
+
 		CarInfoResponse.builder()
 			.carName("산타페")
+			.carTypeId(7L)
 			.carType("SUV")
+			.brandId(1L)
 			.brand("현대")
+			.colorId(1L)
 			.color("검정")
 			.transmission("자동6단")
 			.fuel("디젤")
@@ -484,55 +510,14 @@ public final class CarList {
 					"핸즈프리"
 				)
 			)),
-		CarInfoResponse.builder()
-			.carName("스타리아")
-			.carType("승합차")
-			.brand("현대")
-			.color("검정")
-			.transmission("자동6단")
-			.fuel("가솔린")
-			.drivingMethod("전륜")
-			.year(LocalDate.of(2021, 8, 29))
-			.fuelEfficiency(9.0)
-			.displacement(1999.0)
-			.accidentHistory(1)
-			.inundationHistory(false)
-			.images(List.of(
-				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/santafe.jpeg"
-			))
-			.options(Map.of(
-				"외장", List.of(
-					"주간주행등",
-					"썬루프",
-					"루프렉"
-				),
-				"내장", List.of(
-					"열선시트",
-					"파워핸들",
-					"핸들 리모컨",
-					"전동시트"
-				),
-				"안전", List.of(
-					"사이드&커튼에어백",
-					"에어백",
-					"후방카메라"
-				),
-				"편의", List.of(
-					"오토라이트",
-					"전자식파킹브레이크",
-					"ECM룸밀러"
-				),
-				"멀티미디어", List.of(
-					"AUX",
-					"USB",
-					"핸즈프리"
-				)
-			)),
 
 		CarInfoResponse.builder()
 			.carName("스타리아")
+			.carTypeId(10L)
 			.carType("승합차")
-			.brand("현t")
+			.brandId(1L)
+			.brand("현대")
+			.colorId(1L)
 			.color("검정")
 			.transmission("자동8단")
 			.fuel("가솔린")
@@ -583,11 +568,15 @@ public final class CarList {
 					"핸즈프리"
 				)
 			)),
+
 		CarInfoResponse.builder()
 			.carName("K5")
-			.carType("세단")
+			.carTypeId(4L)
+			.carType("중형차")
+			.brandId(7L)
 			.brand("기아")
-			.color("파랑")
+			.colorId(1L)
+			.color("파란색")
 			.transmission("자동8단")
 			.fuel("가솔린")
 			.drivingMethod("전륜")
@@ -643,7 +632,7 @@ public final class CarList {
 		try {
 			char c = carNumber.charAt(carNumber.length() - 1);
 			int i = Integer.parseInt(String.valueOf(c));
-
+			i %= list.size();
 			return list.get(i).memberName(name).info(carNumber).build();
 		} catch (Exception e) {
 			return list

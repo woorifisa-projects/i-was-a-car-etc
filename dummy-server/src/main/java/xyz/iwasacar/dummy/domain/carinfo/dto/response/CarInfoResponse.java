@@ -10,10 +10,14 @@ import lombok.Builder;
 
 @Builder
 public record CarInfoResponse(
+
 	String memberName,
 	String carName,
+	Long carTypeId,
 	String carType,
+	Long brandId,
 	String brand,
+	Long colorId,
 	String color,
 	String info,
 	String transmission,
@@ -29,5 +33,6 @@ public record CarInfoResponse(
 
 	List<String> images,
 	Map<String, List<String>> options
+
 ) {
 }
