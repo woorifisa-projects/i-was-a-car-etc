@@ -23,23 +23,26 @@ public class MemberController {
 		@RequestParam String rrnf,
 		@RequestParam String rrnb
 	) {
-		HttpStatus status = checkRrn(rrnf, rrnb) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
+		HttpStatus status = checkRrn(name, rrnf, rrnb) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
 
 		return ResponseEntity.status(status).build();
 	}
 
-	private boolean checkRrn(final String rrnf, final String rrnb) {
+	private boolean checkRrn(final String name, final String rrnf, final String rrnb) {
 
+		String nameRegex = "[가-힣]{2,10}$";
 		String rrnfRegex = "d{2}([0]\\d|[1][0-2])([0][1-9]|[1-2]\\d|[3][0-1])";
 		String rrnbRegex = "[1-4]\\d{6}";
 
+		Pattern namePattern = Pattern.compile(nameRegex);
 		Pattern front = Pattern.compile(rrnfRegex);
 		Pattern back = Pattern.compile(rrnbRegex);
 
+		Matcher matcher = namePattern.matcher(name);
 		Matcher frontMatcher = front.matcher(rrnf);
 		Matcher backMatcher = back.matcher(rrnb);
 
-		return frontMatcher.find() && backMatcher.find();
+		return matcher.find() && frontMatcher.find() && backMatcher.find();
 	}
 
 }
