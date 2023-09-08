@@ -1,6 +1,5 @@
 package xyz.iwasacar.dummy.domain.member;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.springframework.http.HttpStatus;
@@ -41,6 +40,8 @@ public class MemberController {
 		boolean nameMatcher = namePattern.matcher(name).find();
 		boolean frontMatcher = frontPattern.matcher(rrnf).find();
 		boolean backMatcher = backPattern.matcher(rrnb).find();
+
+		log.info("name: {} || front: {} || back: {}", nameMatcher, frontMatcher, backMatcher);
 
 		return nameMatcher && frontMatcher && backMatcher;
 	}
