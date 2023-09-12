@@ -31,7 +31,7 @@ public final class CarList {
 			.accidentHistory(1)
 			.inundationHistory(false)
 			.images(List.of(
-				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/k8Image.jpeg"
+				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/k8.jpeg"
 			))
 			.options(Map.of(
 				"외장", List.of(
@@ -275,7 +275,7 @@ public final class CarList {
 			.accidentHistory(3)
 			.inundationHistory(false)
 			.images(List.of(
-				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/x6.jpeg"
+				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/x6.png"
 			))
 			.options(Map.of(
 				"외장", List.of(
@@ -376,7 +376,7 @@ public final class CarList {
 			.accidentHistory(0)
 			.inundationHistory(false)
 			.images(List.of(
-				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/ghost.webp"
+				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/ghost.png"
 			))
 			.options(Map.of(
 				"외장", List.of(
@@ -528,7 +528,7 @@ public final class CarList {
 			.accidentHistory(1)
 			.inundationHistory(false)
 			.images(List.of(
-				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/staria.jpeg"
+				"https://i-was-a-car.s3.ap-northeast-2.amazonaws.com/staria.png"
 			))
 			.options(Map.of(
 				"외장", List.of(
