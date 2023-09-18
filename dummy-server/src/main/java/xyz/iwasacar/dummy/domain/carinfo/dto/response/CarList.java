@@ -262,7 +262,7 @@ public final class CarList {
 			.carName("X6")
 			.carTypeId(7L)
 			.carType("SUV")
-			.brandId(9L)
+			.brandId(8L)
 			.brand("BMW")
 			.colorId(1L)
 			.color("갈색")
